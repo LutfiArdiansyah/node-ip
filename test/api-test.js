@@ -197,11 +197,15 @@ describe('IP library for node.js', () => {
     });
 
     it('should string ipv4 network address', () => {
-      assert.equal(ip.cidrSubnet(127), 'CIDR must be a string');
+      assert.throws(() => {
+        ip.cidrSubnet(127);
+      }, /must be a string/);
     });
 
     it('should single entry ipv4 network address', () => {
-      assert.equal(ip.cidrSubnet("127.0.0.1, 10.0.0.0/8"), 'CIDR must not contain multiple entries');
+      assert.throws(() => {
+        ip.cidrSubnet('127.0.0.1, 10.0.0.0/8');
+      }, /must not contain multiple entries/);
     });
 
     it('should compute an ipv4 network\'s first address', () => {
@@ -243,11 +247,15 @@ describe('IP library for node.js', () => {
 
   describe('cidr() method', () => {
     it('should string ipv4 network address', () => {
-      assert.equal(ip.cidr(127), 'CIDR must be a string');
+      assert.throws(() => {
+        ip.cidrSubnet(127);
+      }, /must be a string/);
     });
 
     it('should single entry ipv4 network address', () => {
-      assert.equal(ip.cidr("127.0.0.1, 10.0.0.0/8"), 'CIDR must not contain multiple entries');
+      assert.throws(() => {
+        ip.cidrSubnet('127.0.0.1, 10.0.0.0/8');
+      }, /must not contain multiple entries/);
     });
 
     it('should mask address in CIDR notation', () => {
